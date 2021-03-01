@@ -6,6 +6,6 @@
 
 ```bash
 $ git clone ... && cd ...
-$ npm install --production=false    # This will install devDependencies even if NODE_ENV is set to production
+$ npm i --production=false  # This will install devDependencies even if NODE_ENV is set to production
 ```
 
