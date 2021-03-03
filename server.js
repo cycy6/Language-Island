@@ -1,4 +1,18 @@
 const express = require('express');
+<<<<<<< HEAD
+const mysql = require('mysql');
+const path = require('path');
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+
+app.use(express.static('public'));
+
+app.listen(port, () => {
+  console.log(`listening at http://localhost:${port}`);
+})
+=======
 const app = express();
 const db = require('./config/connection')
 
@@ -33,3 +47,4 @@ app.get('/api/members/:name', (req, res) => {
 
 
 app.listen(process.env.PORT || 3000, () => console.log('Listening on localhost:3000'))
+>>>>>>> origin/main
