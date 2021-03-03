@@ -22,14 +22,15 @@ router.post('/login', (req, res) => {
         .then(logins => {
             // If the username exists
             if (logins.some((item) => item.dataValues.username === username)) {
-                // And if the password is correct
-                if (logins.some((item) => item.dataValues.password === password))
-                    return res.send('You are logged in')
-            } else {
+                if (logins.some((item) => item.dataValues.username === username && item.dataValues.password === password)) {
+                    // And if the password is correct
+                    return res.send('You are logged in!')
+                } else {
+                    // If the password is incorrect
+                    return res.send('Incorrect Username/Password!')
+                }
                 // If the username does not exist
-                return res.send('This account does not exist')
-            }
-            res.sendStatus(200)
+            } else return res.send('Account does not exist, Please create an account')
         })
         .catch(err => console.log(err))
 })
