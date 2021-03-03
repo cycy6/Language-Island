@@ -16,7 +16,7 @@
     <button onclick="saveName()">Submit</button> -->
 
 
-  <form method="POST" action="/logins/register">
+  <form method="POST" action="/logins/login">
 
 
     <div class="form-group">
@@ -24,19 +24,10 @@
       <input name="username" type="text" class="form-control" id="usernameInput">
     </div>
 
-    <div class="form-group">
-      <label for="firstNameInput">First Name</label>
-      <input name="firstName" type="text" class="form-control" id="firstNameInput" disabled>
-    </div>
-
-    <div class="form-group">
-      <label for="lastNameInput">Last Name</label>
-      <input name="lastName" type="text" class="form-control" id="lastNameInput" disabled>
-    </div>
 
     <div class="form-group">
       <label for="emailInput">Email address</label>
-      <input name="email" type="email" class="form-control" id="emailInput" placeholder="Enter email">
+      <input name="email" type="email" class="form-control" id="emailInput" placeholder="Enter email" disabled>
     </div>
 
     <div class="form-group">
@@ -44,16 +35,10 @@
       <input name="password" type="password" class="form-control" id="passwordInput" placeholder="Password">
     </div>
 
-    <div class="form-group">
-      <label for="confirmPasswordInput">Confirm Password</label>
-      <input name="confirmPassword" type="password" class="form-control" id="confirmPasswordInput"
-        placeholder="Re-enter your password here">
-    </div>
-
     <button type="submit" class="btn btn-primary">Login</button>
   </form>
 
-  <p><a href="index">Go to Index</a></p>
+  <p><a href="register.html">Create an Account</a></p>
 
 
   <script>

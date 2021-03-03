@@ -14,6 +14,26 @@ router.get('/', (req, res) =>
         .catch(err => console.log(err)))
 
 
+// For Logging in to an existing account
+router.post('/login', (req, res) => {
+    const { email, password, username } = req.body;
+
+    Login.findAll()
+        .then(logins => {
+            // If the username exists
+            if (logins.some((item) => item.dataValues.username === username)) {
+                // And if the password is correct
+                if (logins.some((item) => item.dataValues.password === password))
+                    return res.send('You are logged in')
+            } else {
+                // If the username does not exist
+                return res.send('This account does not exist')
+            }
+            res.sendStatus(200)
+        })
+        .catch(err => console.log(err))
+})
+
 
 // For Creating an Account
 router.post('/register', (req, res) => {
@@ -24,30 +44,27 @@ router.post('/register', (req, res) => {
         .then(logins => {
             if (!logins.some((item) => item.dataValues.username === username)) {
                 // If the account does NOT already exist
-                res.send('New Input')
-                // Insert Account info into table
-                Login.create()
 
+                // Insert Account info into table
+                Login.create({
+                    username: username,
+                    password: password
+
+                })
+
+                return res.send('New Input')
             } else {
                 // If the account DOES already exist
-                res.send('That email is already in use')
 
 
+                return res.send('That email is already in use')
             }
             res.sendStatus(200)
         })
         .catch(err => console.log(err))
-
-
-    // console.log(req.body)
-    // console.log(username)
-    // if (members.find(x => x.username === username)) {
-    //     res.send(req.body)
-    //     s
-    // } else {
-    //     res.send("User doesn't exist")
-    // }
 })
+
+
 
 
 

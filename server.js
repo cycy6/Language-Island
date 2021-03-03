@@ -14,10 +14,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 
-
-
-const printRes = (req, res, next) => { console.log(res), next() }
-const printReq = (req, res, next) => { console.log(req), next() }
 app.use(express.static('public'))
 app.use('/logins', require('./routes/logins'))
 
@@ -32,25 +28,8 @@ app.get('/api/members/:name', (req, res) => {
 
 })
 
-app.get('/index', (req, res) => {
-    res.send('Hola')
-})
 
 
-
-
-
-// app.post('/register', (req, res) => {
-//     const { email, firstName, lastName, password, confirmPassword, username } = req.body;
-//     console.log(req.body)
-//     console.log(username)
-//     if (members.find(x => x.username === username)) {
-//         res.send(req.body)
-//         s
-//     } else {
-//         res.send("User doesn't exist")
-//     }
-// })
 
 
 app.listen(process.env.PORT || 3000, () => console.log('Listening on localhost:3000'))
