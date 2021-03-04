@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const db = require('./config/connection');
+const exphbs = require('express-handlebars');
 
 
 
@@ -13,19 +14,15 @@ db.authenticate()
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
 
-app.use(express.static('public'))
+
+// app.use(express.static('public'))
 app.use('/logins', require('./routes/logins'));
 
-app.get('/api/members/:name', (req, res) => {
-    const found = members.some(member => member.name === req.params.name)
-    if (found) {
-        res.json(members.filter(member => member.name === req.params.name))
-    } else {
-        res.status(400).json({ msg: 'No members with the name of ' + req.params.name })
-    }
-
-
+app.get('/', (req, res) => {
+    res.render('login.handlebars')
 });
 
 
