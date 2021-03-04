@@ -1,21 +1,21 @@
 const express = require('express');
 const app = express();
-const db = require('./config/connection')
+const db = require('./config/connection');
 
 
 
 //---------------------------------------------SEQUELIZE-----------------------------------------------------
 db.authenticate()
     .then(() => console.log('Database connected...'))
-    .catch(err => console.log('Error: ' + err))
+    .catch(err => console.log('Error: ' + err));
 
 // Body Parser middleware
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 
 app.use(express.static('public'))
-app.use('/logins', require('./routes/logins'))
+app.use('/logins', require('./routes/logins'));
 
 app.get('/api/members/:name', (req, res) => {
     const found = members.some(member => member.name === req.params.name)
@@ -26,10 +26,9 @@ app.get('/api/members/:name', (req, res) => {
     }
 
 
-})
+});
 
 
 
 
-
-app.listen(process.env.PORT || 3000, () => console.log('Listening on localhost:3000'))
+app.listen(process.env.PORT || 3000, () => console.log('Listening on localhost:3000'));
