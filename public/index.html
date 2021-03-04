@@ -5,60 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-  <link href="./assets/style.css" rel="stylesheet">
-  <script src="https://apis.google.com/js/api.js"></script>
+  <title>Document</title>
 </head>
 
 <body>
-<<<<<<< HEAD
-  <script>
-    let RES;
-
-    googleApiClientReady = function () {
-      loadApi = function() {
-        return new Promise(function (resolve, reject) {
-          gapi.client.setApiKey('AIzaSyCjxUBAFnFk_oI2MU6ecjvLPvHOmXwO2lI');
-          gapi.client.load('youtube', 'v3', resolve);
-        });
-      };
-
-      loadApi().then(() => {
-        var request = gapi.client.youtube.playlistItems.list({
-          "part": ["snippet,contentDetails"],
-          "maxResults": 25,
-          "playlistId": "PLHI2TAm-NyNPpFJriRvVbxVoJ4jksDUUH"
-        });
-      });
-    }
-  </script>
-  <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
-
-  
-  <div class="container">
-    <div class="row" id="video-row">
-
-    </div>
-  </div>
-
-
-  <main>
-    <iframe id="player" src="" width="" height="" frameborder="0"></iframe>
-  </main>
-
-
-  <footer>
-
-  </footer>
-
-
-  <script src="./assets/script.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-    crossorigin="anonymous"></script>
-=======
 
 
   <!-- <label for="Name">Name</label>
@@ -95,7 +45,6 @@
     { }
   </script>
 
->>>>>>> origin/main
 </body>
 
 </html>

@@ -8,4 +8,3 @@
 $ git clone ... && cd ...
 $ npm i --production=false  # This will install devDependencies even if NODE_ENV is set to production
 ```
-

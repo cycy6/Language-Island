@@ -9,4 +9,4 @@ const sequelize = new Sequelize('users', 'root', '1Ardiadcm!', {
 })
 
 
-module.exports = sequelize
+module.exports = sequelize;
