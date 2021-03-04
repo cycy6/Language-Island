@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const db = require('./config/connection');
 const exphbs = require('express-handlebars');
+const path = require('path')
 
 
 
@@ -17,16 +18,18 @@ app.use(express.urlencoded({ extended: false }));
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
+app.use(express.static(path.join(__dirname, '/public')));
+
 
 // app.use(express.static('public'))
 app.use('/logins', require('./routes/logins'));
 
 app.get('/', (req, res) => {
-    res.render('login.handlebars')
+    res.render('login.handlebars', { title: 'Login' })
 });
 
 app.get('/register', (req, res) => {
-    res.render('register.handlebars')
+    res.render('register.handlebars', { title: 'Register' })
 });
 
 

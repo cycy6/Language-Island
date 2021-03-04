@@ -6,13 +6,14 @@
 html body{
     height: 100vh;
     width: 100%;
-    background-image: url("./project2.jpg");
+    background-image: url("../images/ocean-theme.png");
     background-position: center;
     background-size: cover;
     padding-left: 5%;
     padding-right: 5%;
     box-sizing: border-box;
     position: relative;
+    background-color: brown;
 }
 
 .navbar{
@@ -21,4 +22,9 @@ html body{
     margin: auto;
     display: flex;
     align-items: center;
+}
+
+header{
+    background-color: aqua;
+    color: brown;
 }
