@@ -25,6 +25,10 @@ app.get('/', (req, res) => {
     res.render('login.handlebars')
 });
 
+app.get('/register', (req, res) => {
+    res.render('register.handlebars')
+});
+
 
 
 
