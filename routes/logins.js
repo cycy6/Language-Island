@@ -13,7 +13,7 @@ router.post('/login', (req, res) => {
             if (logins.some((item) => item.dataValues.email === email)) {
                 if (logins.some((item) => item.dataValues.email === email && item.dataValues.password === password)) {
                     // And if the password is correct
-                    return res.send('You are logged in!')
+                    res.render('learning.handlebars')
                 } else {
                     // If the password is incorrect
                     return res.send('Incorrect Username/Password!')
@@ -45,7 +45,7 @@ router.post('/register', (req, res) => {
                         email: email,
                         password: password
                     })
-                    return res.send('New Input')
+                    res.render('login.handlebars')
                 }
                 else {
                     res.render('register.handlebars', { title: 'Register', loginErr: `*Passwords don't match`, layout: 'loginTemplate.handlebars' })
