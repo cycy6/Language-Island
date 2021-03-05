@@ -37,12 +37,13 @@ header{
     text-align: center;
 }
 
-#registerbtn {
-    float: right;
-}
-
 .entryErr {
     color: red;
 }
 
+/* .card{
+    position: absolute;
+    left: 50%;
+    margin-left: -225px;
+} */
 

@@ -20,7 +20,8 @@ router.post('/login', (req, res) => {
                 }
             } else {
                 // If the username does not exist
-                return res.send('Account does not exist, Please create an account')
+                res.render('login.handlebars', { title: 'Login', loginErr: '*Account does not exist, Please create an account', layout: 'loginTemplate.handlebars' })
+
             }
         })
         .catch(err => console.log(err))
@@ -34,23 +35,27 @@ router.post('/register', (req, res) => {
 
     Login.findAll()
         .then(logins => {
-            let eCheck = false
-            let pCheck = false
 
             if (!logins.some((item) => item.dataValues.email === email)) {
                 // If the account does NOT already exist
 
-                // Insert Account info into table
-                Login.create({
-                    email: email,
-                    password: password
-                })
-                return res.send('New Input')
+                if (password === confirmPassword) {
+                    // Insert Account info into table
+                    Login.create({
+                        email: email,
+                        password: password
+                    })
+                    return res.send('New Input')
+                }
+                else {
+                    res.render('register.handlebars', { title: 'Register', loginErr: `*Passwords don't match`, layout: 'loginTemplate.handlebars' })
+                }
+
 
             } else {
                 // If the account DOES already exist
                 // return res.send('That email is already in use')
-                res.render('register.handlebars', { title: 'Register', errorMsgEmail: '*That email is already in use', layout: 'initial.handlebars' })
+                res.render('register.handlebars', { title: 'Register', loginErr: '*That email is already in use', layout: 'loginTemplate.handlebars' })
             }
         })
         .catch(err => console.log(err))

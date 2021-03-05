@@ -4,6 +4,8 @@ const db = require('./config/connection');
 const exphbs = require('express-handlebars');
 const path = require('path')
 
+const loginErr = []
+
 
 db.authenticate()
     .then(() => console.log('Database connected...'))
@@ -23,11 +25,15 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use('/', require('./routes/logins'));
 
 app.get('/', (req, res) => {
-    res.render('login.handlebars', { title: 'Login', layout: 'initial.handlebars' })
+    res.render('login.handlebars', { title: 'Login', layout: 'loginTemplate.handlebars' })
 });
 
 app.get('/register', (req, res) => {
-    res.render('register.handlebars', { title: 'Register', errorMsg: '', layout: 'initial.handlebars' })
+    res.render('register.handlebars', { title: 'Register', loginErr: '', layout: 'loginTemplate.handlebars' })
+});
+
+app.get('/contact', (req, res) => {
+    res.render('contact.handlebars', { title: 'Contact' })
 });
 
 
