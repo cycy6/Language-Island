@@ -22,14 +22,14 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 
 // app.use(express.static('public'))
-app.use('/logins', require('./routes/logins'));
+app.use('/', require('./routes/logins'));
 
 app.get('/', (req, res) => {
-    res.render('login.handlebars', { title: 'Login' })
+    res.render('login.handlebars', { title: 'Login', layout: 'initial.handlebars' })
 });
 
 app.get('/register', (req, res) => {
-    res.render('register.handlebars', { title: 'Register' })
+    res.render('register.handlebars', { title: 'Register', errorMsg: '', layout: 'initial.handlebars' })
 });
 
 
