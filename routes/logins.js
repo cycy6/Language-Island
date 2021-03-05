@@ -3,17 +3,6 @@ const router = express.Router();
 const db = require('../config/connection');
 const Login = require('../models/Login')
 
-router.get('/', (req, res) =>
-    Login.findAll()
-        .then(logins => {
-            logins.forEach(entry => {
-                console.log(entry.dataValues)
-            });
-            res.sendStatus(200)
-        })
-        .catch(err => console.log(err)))
-
-
 // For Logging in to an existing account
 router.post('/login', (req, res) => {
     const { email, password } = req.body;

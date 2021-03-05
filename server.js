@@ -5,8 +5,6 @@ const exphbs = require('express-handlebars');
 const path = require('path')
 
 
-
-//---------------------------------------------SEQUELIZE-----------------------------------------------------
 db.authenticate()
     .then(() => console.log('Database connected...'))
     .catch(err => console.log('Error: ' + err));
