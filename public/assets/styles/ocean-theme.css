@@ -25,6 +25,24 @@ html body{
 }
 
 header{
-    background-color: aqua;
-    color: brown;
+    background-color: white;
+    /* color: brown; */
+    text-align: center;
+    border-radius: 5px;
 }
+
+
+
+.card-header {
+    text-align: center;
+}
+
+#registerbtn {
+    float: right;
+}
+
+.entryErr {
+    color: red;
+}
+
+
