@@ -2,7 +2,23 @@
 <br>
 <br>
 <br>
-
+<script type="text/javascript"> 
+        function sendEmail() { 
+          Email.send({ 
+            Host: "smtp.gmail.com", 
+            Username: "languageisland980@gmail.com", 
+            Password: "Toronto2468", 
+            To: 'languageisland980@gmail.com', 
+            From: "cycyc302@gmail.com", 
+            Subject: "Sending Email using javascript", 
+            Body: "Well that was easy!!", 
+          }) 
+            .then(function (message) { 
+              alert("mail sent successfully") 
+            }); 
+        } 
+      </script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
 <div class="container">
     <h1 style="text-align: center;">
         Contact page
